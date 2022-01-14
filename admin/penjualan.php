@@ -1,26 +1,21 @@
 <?php
 
-require_once("../koneksi.php");
 session_start();
-$username = $_SESSION['user'];
-$sql_get = "SELECT penjualan.id_jual, penjualan.nama, penjualan.id, produk.nama_produk, penjualan.jumlah, penjualan.log FROM produk JOIN penjualan ON produk.id = penjualan.id";
-$query_jual = mysqli_query($koneksi, $sql_get);
-$query = mysqli_query($koneksi, $sql_get);
-
-$result = [];
-
-while ($row = mysqli_fetch_assoc($query)) {
-    $result[] = $row;
-}
+$_SESSION['user'];
+$url = "http://localhost/responsiPWD/webservice/getdata.php";
+$client = curl_init($url);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec($client);
+$result = json_decode($response);
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Index</title>
+    <title>Penjualan</title>
     <link rel="stylesheet" type="text/css" href="../css/css4.css">
-    <link rel="icon" type="image/ico" href="img/favicon.ico" />
+    <link rel="icon" type="image/ico" href="../img/bee2.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
@@ -76,33 +71,30 @@ while ($row = mysqli_fetch_assoc($query)) {
             </tr>
 
             <?php
-            foreach ($result as $result) :
+            foreach ($result as $r) :
             ?>
                 <tr>
                     <td>
-                        <p><?= $result['id_jual'] ?></p>
+                        <p><?php echo $r->id_jual ?></p>
                     </td>
                     <td>
-                        <p><?= $result['nama'] ?></p>
+                        <p><?php echo $r->nama ?></p>
                     </td>
                     <td>
-                        <p><?= $result['id'] ?></p>
+                        <p><?php echo $r->id ?></p>
                     </td>
                     <td>
-                        <p><?= $result['nama_produk'] ?></p>
+                        <p><?php echo $r->nama_produk ?></p>
                     </td>
                     <td>
-                        <p><?= $result['jumlah'] ?></p>
+                        <p><?php echo $r->jumlah ?></p>
                     </td>
                     <td>
-                        <p><?= $result['log'] ?></p>
+                        <p><?php echo $r->log ?></p>
                     </td>
                     <td>
                         <p>
-                            <a href="edit.php?id=<?= $result['id']; ?>" title="Ubah" class="btn btn-success btn-sm">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a href="hapus.php?id=<?= $result['id']; ?>" onclick="return confirm('Hapus Data Ini ?')" title="Hapus" class="btn btn-danger btn-sm">
+                            <a href="hapus.php?id=<?php echo $r->id; ?>" onclick="return confirm('Hapus Data Ini ?')" title="Hapus" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </p>

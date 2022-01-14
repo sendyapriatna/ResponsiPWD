@@ -94,7 +94,7 @@ $result = json_decode($response);
                     </td>
                     <td>
                         <p>
-                            <a href="hapus.php?id=<?php echo $r->id; ?>" onclick="return confirm('Hapus Data Ini ?')" title="Hapus" class="btn btn-danger btn-sm">
+                            <a href="hapus.php?id_jual=<?php echo $r->id_jual ?>" onclick="return confirm('Hapus Data Ini ?')" title="Hapus" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </p>

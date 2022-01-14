@@ -1,0 +1,147 @@
+* {
+  font-family: "Montserrat";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: url(../img/back.png);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+section {
+  position: relative;
+  padding: 100px;
+  min-height: 94vh;
+  display: flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 40px 100px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+tr .head {
+  color: #ffa900;
+}
+
+table tr td {
+  color: #01252a;
+  font-weight: bold;
+  min-width: 200px;
+}
+table tr td p {
+  margin: 10px 0 0 0;
+}
+/* Nav */
+nav .logo {
+  position: relative;
+  display: inline-block;
+  font-size: 2em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+}
+nav ul {
+  position: relative;
+  display: flex;
+}
+nav ul li {
+  list-style: none;
+}
+nav ul li a {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 8px 18px;
+  color: #0e3c5c;
+  text-decoration: none;
+  user-select: none;
+  transition: 0.1s;
+}
+nav ul li a.active,
+nav ul li a:hover {
+  /*background: #ffffff42;*/
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(41, 41, 41);
+  border-radius: 5px;
+}
+nav ul li a.button {
+  border: 2px solid #0e3c5c;
+  color: #0e3c5c;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px 10px 5px 10px;
+}
+nav ul li a.button:hover {
+  background: #0e3c5c;
+  color: #fff;
+}
+
+nav .navbar {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+}
+/* End Nav */
+
+/* Content*/
+.product {
+  background: url(../img/back.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.web h2,
+.mobile h2,
+.product h2,
+.more h2,
+.port h2 {
+  font-size: 2.5em;
+  line-height: 1.2em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.web p,
+.mobile p,
+.product p,
+.more p {
+  font-size: 1.2em;
+}
+/* End Content */
+
+/* More */
+.more {
+  background: url(../img/back.png);
+}
+.row .card {
+  background: rgba(255, 255, 255, 0.2);
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 350px;
+  margin: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+/* End More */
+
+.footer {
+  background: rgb(27, 83, 116);
+}
+.footer p {
+  margin: 20px;
+}
+
+.port .row img {
+  height: auto;
+  width: 80%;
+}
